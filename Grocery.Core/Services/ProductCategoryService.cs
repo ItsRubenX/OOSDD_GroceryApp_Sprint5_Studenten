@@ -1,26 +1,27 @@
-﻿using Grocery.Core.Interfaces.Services;
+﻿using Grocery.Core.Interfaces.Repositories;
+using Grocery.Core.Interfaces.Services;
 using Grocery.Core.Models;
 
 namespace Grocery.Core.Services
 {
     public class ProductCategoryService : IProductCategoryService
     {
-        private readonly IProductCategoryService _productCategoryService;
-        public ProductCategoryService(IProductCategoryService productCategoryService)
+        private readonly IProductCategoryRepository _productCategoryRepository;
+        public ProductCategoryService(IProductCategoryRepository productCategoryRepository)
         {
-            _productCategoryService = productCategoryService;
+            _productCategoryRepository = productCategoryRepository;
         }
         public List<ProductCategory> GetAll()
         {
-            return _productCategoryService.GetAll();
+            return _productCategoryRepository.GetAll();
         }
         public ProductCategory Add(ProductCategory item)
         {
-            return _productCategoryService.Add(item);
+            return _productCategoryRepository.Add(item);
         }
-        public List<ProductCategory> GetAllOnCategoryId()
+        public List<ProductCategory> GetAllOnCategoryId(int id)
         {
-            return _productCategoryService.GetAllOnCategoryId();
+            return _productCategoryRepository.GetAllOnCategoryId(id);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Grocery.Core.Data.Repositories
                 new Category(1, "Groente"),
                 new Category(2, "Bakkerij"),
                 new Category(3, "Zuivel"),
-                new Category(4, "Conserveren"),
+                new Category(4, "Conserven"),
                 new Category(5, "Ontbijt"),
             ];
         }
