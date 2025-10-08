@@ -14,13 +14,13 @@ namespace Grocery.App.ViewModels
         private readonly IProductService _productService;
 
         private string searchText = "";
+        private int lastCategoryId = 0;
+
         public ObservableCollection<ProductCategory> ProductCategories { get; set; } = [];
         public ObservableCollection<Product> AvailableProducts { get; set; } = [];
 
         [ObservableProperty]
         Category category;
-
-        public int lastCategoryId = 0;
 
         public ProductCategoriesViewModel(IProductCategoryService productCategoryService, IProductService productService)
         {
@@ -32,7 +32,7 @@ namespace Grocery.App.ViewModels
         {
             if (newValue != null) 
             {
-                category = newValue;
+                Category = newValue;
                 Title = $"Producten in {newValue.Name}";
                 Load(newValue.Id);
             }
